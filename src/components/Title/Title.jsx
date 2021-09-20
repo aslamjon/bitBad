@@ -40,6 +40,9 @@ const TilteStyled = styled.div`
     ${({semibold}) => semibold && css`
         font-weight: 600;
     `}
+    ${({color}) => color && css`
+        color: ${color};
+    `}
 `;
 
 const Title = (props) => {
