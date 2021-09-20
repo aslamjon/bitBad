@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import { withRouter } from 'react-router-dom';
 import Login from '../components/Login';
 import ApiServices from '../services/api/ApiServices';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const LoginOrSignUpPage = ({history}) => {
+    const notify = (value) => toast.error(`${value}`);
     const [phone_number, setPhoneNumber] = useState('');
     const inputHandling = (e) => {
         setPhoneNumber(e.target.value)
@@ -24,10 +26,16 @@ const LoginOrSignUpPage = ({history}) => {
                 if (registered) history.push(`/auth/login/${btoa(phone_number)}`);
                 else history.push(`/auth/signup/${btoa(phone_number)}`);
             }
-        }).catch(e => console.log(e))
+        }).catch(e => {
+            console.log(e) 
+            notify("Xatolik mavjud yoki Maxfiy raqamning amal qilish muddati tugagan")
+        })
     }
     return (
-        <Login submitHandiling={submitHandiling} inputValue={phone_number} inputHandling={inputHandling} />
+        <>
+            <ToastContainer />
+            <Login submitHandiling={submitHandiling} inputValue={phone_number} inputHandling={inputHandling} />
+        </>
     )
 }
 

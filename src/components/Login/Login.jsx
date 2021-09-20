@@ -28,6 +28,10 @@ const CardStyled = styled.div`
     button {
         margin-top: 20px;
     }
+    .inputName {
+        width: 95%;
+        margin-bottom: 10px;
+    }
 `;
 
 const Login = ({ submitHandiling, inputValue="", inputHandling = () => {}, nameValue = "", nameHandling = () => {}, login, signup }) => {

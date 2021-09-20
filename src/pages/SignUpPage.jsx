@@ -11,16 +11,18 @@ const SignUpPage = () => {
     const [name, setName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const {phone:phone_number} = useParams();
-
+    
     const inputHandling = (e) => {
         setPhoneNumber(e.target.value)
     }
     const nameHandling = (e) => {
-        setName(e.terget.value)
+        setName(e.target.value)
+        setPhoneNumber(atob(phone_number))
     }
 
     const submitHandiling = (e) => {
         e.preventDefault()
+        // ApiServices.signUp({phone_number:atob(phone_number), code, full_name: name})
     }
     return (
         <>
