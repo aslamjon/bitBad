@@ -20,6 +20,8 @@ const LinkStyled = styled(Link)`
     letter-spacing: 0.01em;
     color: #F4F3F3;
     text-decoration-line: underline;
+    margin-top: 14px;
+    display: inline-block;
 `;
 
 const AuthLayout = ({children, props}) => {
@@ -27,7 +29,6 @@ const AuthLayout = ({children, props}) => {
     return (
         <AuthStyled>
             <div className="authCard">
-                AuthLayout
                 {children}
                 <LinkStyled to="/auth/signup" >Ro'yxatdan o'tmaganmisiz?</LinkStyled>
             </div>

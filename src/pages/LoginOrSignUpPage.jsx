@@ -1,62 +1,34 @@
-import React from 'react'
-import styled from 'styled-components'
-import Button from '../components/Button';
-import Title from '../components/Title';
-
-const StyledLoginOrSignUp = styled.div`
-    .borderDashed {
-        border-bottom: 2px dashed #334D6E;
-    }
-`;
-const CardStyled = styled.div`
-    background: #BFCCDD;
-    border-radius: 15px;
-    padding: 34px 20px 23px 19px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    button {
-        margin-top: 20px;
-    }
-`;
-const InputOfCardStyled = styled.div`
-    background: #F0F0F0;
-    border-radius: 15px;
-    padding: 13px 11px;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.01em;
-    color: #929FAF;
-    input {
-        border: none;
-        outline: none;
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 18px;
-        letter-spacing: 0.01em;
-        color: #929FAF;
-        background: none;
-        padding-left: 5px;
-    }
-`;
+import React, {useState} from 'react'
+import { withRouter } from 'react-router-dom';
+import Login from '../components/Login';
+import ApiServices from '../services/api/ApiServices';
 
 
-const LoginOrSignUpPage = () => {
+const LoginOrSignUpPage = ({history}) => {
+    const [phone_number, setPhoneNumber] = useState('');
+    const inputHandling = (e) => {
+        setPhoneNumber(e.target.value)
+        // if (e.target.value.length === 2 || e.target.value.length === 6 || e.target.value.length === 9) {
+        //     setPhoneNumber(`${e.target.value} `)
+        // }
+    }
+    const submitHandiling = (e) => {
+        e.preventDefault();
+        const to_reqister = false;
+        function multiReplace(str, oldObj, newObj) {
+            return str.split(oldObj).join(newObj)
+        }
+        ApiServices.logInOrSignUp({phone_number: multiReplace(phone_number, ' ' , ''), to_reqister}).then(res => {
+            if (res && res.data) {
+                const {registered} = res.data;
+                if (registered) history.push(`/auth/login/${btoa(phone_number)}`);
+                else history.push(`/auth/signup/${btoa(phone_number)}`);
+            }
+        }).catch(e => console.log(e))
+    }
     return (
-        <StyledLoginOrSignUp>
-            <Title title13>Tizimga kirish</Title>
-            <p>Telefon raqamingizni kiriting</p>
-            <div className="borderDashed"></div>
-            <CardStyled>
-                <InputOfCardStyled>
-                    <span>+998</span>
-                    <input type="text" maxLength="7" placeholder="** *** ** **" />
-                </InputOfCardStyled>
-                <Button>Yuborish</Button>
-            </CardStyled>
-        </StyledLoginOrSignUp>
+        <Login submitHandiling={submitHandiling} inputValue={phone_number} inputHandling={inputHandling} />
     )
 }
 
-export default LoginOrSignUpPage
+export default withRouter(LoginOrSignUpPage);
