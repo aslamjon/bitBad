@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Theme from './components/Theme';
 import Router from './router';
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 ReactDOM.render(
-  <Theme>
-  <Router />
-  </Theme>,
+  <Provider store={store}>
+    <Theme>
+      <Router />
+    </Theme>
+  </Provider>
+  ,
   document.getElementById('root')
 );

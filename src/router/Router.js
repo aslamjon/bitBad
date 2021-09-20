@@ -7,6 +7,9 @@ import LoginOrSignUpPage from '../pages/LoginOrSignUpPage'
 import LoginPage from '../pages/LoginPage'
 import PageNotFound from '../pages/PageNotFound'
 import SignUpPage from '../pages/SignUpPage'
+
+import 'react-toastify/dist/ReactToastify.css';
+
 const Router = () => {
     return (
         <WebRouter>

@@ -23,10 +23,10 @@ const InputOfCardStyled = styled.div`
     }
 `;
 
-const Input = ({ inputValue, changeValue, length, placeholder }) => {
+const Input = ({ inputValue, changeValue, length, placeholder, login='', signup='' }) => {
     return (
         <InputOfCardStyled>
-            <span>+998</span>
+            {login || signup ? '' : <span>+998</span>}
             <input type="text" maxLength={length ? `${length}` : "12"} placeholder={placeholder ? placeholder : "** *** ** **"} value={inputValue} onChange={changeValue} />
         </InputOfCardStyled>
     )

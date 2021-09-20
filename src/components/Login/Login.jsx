@@ -38,10 +38,10 @@ const Login = ({ submitHandiling, inputValue="", inputHandling = () => {}, nameV
             <div className="borderDashed"></div>
             <CardStyled>
                 {login ? 
-                    <Input placeholder="******" length="4" inputValue={inputValue} changeValue={inputHandling} /> 
+                    <Input login placeholder="******" length="6" inputValue={inputValue} changeValue={inputHandling} /> 
                 : signup ? 
                     <>
-                        <Input placeholder="Ism" inputValue={nameValue} changeValue={nameHandling} />
+                        <Input signup placeholder="Ism" inputValue={nameValue} changeValue={nameHandling} />
                         <Input length={9} inputValue={inputValue} changeValue={inputHandling} />
                     </>
                 : <Input length={9} inputValue={inputValue} changeValue={inputHandling} />
