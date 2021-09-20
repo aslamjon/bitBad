@@ -23,7 +23,7 @@ axios.interceptors.request.use((request) => {
 })
 axios.interceptors.response.use((response) => console.log(response), (error) => {
     const statusCode = error.status;
-    if (statusCode == 401) {
+    if (statusCode === 401) {
         console.log('Logout')
     }
 })
