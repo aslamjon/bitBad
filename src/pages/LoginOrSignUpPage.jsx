@@ -10,10 +10,7 @@ const LoginOrSignUpPage = ({history}) => {
     const [phone_number, setPhoneNumber] = useState('');
     const inputHandling = (e) => {
         setPhoneNumber(e.target.value)
-        // if (e.target.value.length === 2 || e.target.value.length === 6 || e.target.value.length === 9) {
-        //     setPhoneNumber(`${e.target.value} `)
-        // }
-    }
+        }
     const submitHandiling = (e) => {
         e.preventDefault();
         const to_reqister = false;
@@ -27,8 +24,9 @@ const LoginOrSignUpPage = ({history}) => {
                 else history.push(`/auth/signup/${btoa(phone_number)}`);
             }
         }).catch(e => {
-            console.log(e) 
-            notify("Xatolik mavjud yoki Maxfiy raqamning amal qilish muddati tugagan")
+            console.log(e.response.data.phone_number) 
+            if (e.response.status === 400) notify("Raqam to'liq kiritilmagan")
+            else notify(`${e.response.data.phone_number}`)
         })
     }
     return (
