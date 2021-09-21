@@ -46,9 +46,9 @@ const Login = ({ submitHandiling, inputValue="", inputHandling = () => {}, nameV
                 : signup ? 
                     <>
                         <Input signup placeholder="Ism" inputValue={nameValue} changeValue={nameHandling} />
-                        <Input length={9} inputValue={inputValue} changeValue={inputHandling} />
+                        <Input phone  inputValue={inputValue} changeValue={inputHandling} />
                     </>
-                : <Input length={9} inputValue={inputValue} changeValue={inputHandling} />
+                : <Input phone inputValue={inputValue} changeValue={inputHandling} />
                 }
                 <Button>{login ? "Kirish" : "Yuborish"}</Button>
             </CardStyled>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import InputMask from 'react-input-mask';
 
 const InputOfCardStyled = styled.div`
     background: #F0F0F0;
@@ -23,11 +24,13 @@ const InputOfCardStyled = styled.div`
     }
 `;
 
-const Input = ({ inputValue, changeValue, length, placeholder, login='', signup='' }) => {
+const Input = ({ inputValue, changeValue, length, placeholder, login = '', signup = '', phone = false }) => {
     return (
         <InputOfCardStyled className={signup ? 'inputName' : ''}>
             {login || signup ? '' : <span>+998</span>}
-            <input type="text" maxLength={length ? `${length}` : "12"} placeholder={placeholder ? placeholder : "** *** ** **"} value={inputValue} onChange={changeValue} />
+            {phone ? <InputMask mask="99 999 99 99" maskChar={null} placeholder={placeholder ? placeholder : "** *** ** **"} value={inputValue} onChange={changeValue} />
+                : <input type="text" maxLength={length ? `${length}` : "12"} placeholder={placeholder ? placeholder : "** *** ** **"} value={inputValue} onChange={changeValue} />}
+
         </InputOfCardStyled>
     )
 }
