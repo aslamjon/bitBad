@@ -53,7 +53,7 @@ const Login = ({ submitHandiling, register={}, login, signup, className='', phon
                 :   <InputOfCardStyled className={className}>
                     {login || signup ? '' : <span>+998</span>}
                     {login ? 
-                        <InputMask mask="99-99-99" maskChar={null} placeholder={"**-**-**"} {...register} />
+                        <InputMask mask="99-99-99" maskChar={null} placeholder={"**-**-**"} {...register('code', { required: true})} />
                     : signup ? 
                         ''
                     : <InputMask mask="99 999 99 99" maskChar={null} placeholder={"** *** ** **"} {...register} />

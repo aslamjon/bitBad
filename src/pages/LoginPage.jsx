@@ -1,23 +1,26 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux';
-
 import { useParams } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import classNames from 'classnames';
+
 import ApiServices from '../services/api/ApiServices';
 import Login from '../components/Login/Login'
 import { setCurrentUser } from '../redux/user/userAction';
-import { createStructuredSelector } from 'reselect';
-import { ToastContainer, toast } from 'react-toastify';
+import Loader from '../components/Loader';
 
 const LoginPage = ({history, setCurrentUser}) => {
     const notify = (value) => toast.error(`${value}`);
-    const [code, setCode] = useState('')
+    const [loading, setLoading] = useState(false);
     const {phone:phone_number} = useParams();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const inputHandling = (e) => {
-        setCode(e.target.value)
-    }
-    const submitHandiling = (e) => {
-        e.preventDefault()
+    
+    const submitHandiling = ({code}) => {
+        setLoading(true)
+        code = code.split('-').join('');
         ApiServices.login({phone_number:atob(phone_number), code}).then(res => {
             if (res.data.token) {
                 setCurrentUser(res.data)
@@ -25,14 +28,18 @@ const LoginPage = ({history, setCurrentUser}) => {
             }
             return res
         }).catch(e => {
-            console.log(e.status);
-            notify("Xatolik mavjud yoki Maxfiy raqamning amal qilish muddati tugagan")
+            if (e.response.data.code) notify(e.response.data.code[0]);
+            else if (e.response.data) notify(e.response.data)
+            else notify("Xatolik mavjud yoki Maxfiy raqamning amal qilish muddati tugagan")
         });
+        setLoading(false)
     }
     return (
         <>  
             <ToastContainer />
-            <Login login submitHandiling={submitHandiling} inputValue={code} inputHandling={inputHandling} />
+            <Loader loading={loading}/>
+            <Login login submitHandiling={handleSubmit(submitHandiling)} 
+            register={register} className={classNames({error: !!errors.code})} />
         </>
     )
 }
