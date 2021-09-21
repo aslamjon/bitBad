@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import InputMask from 'react-input-mask';
 import Button from '../Button';
-import Input from '../Input';
 import Title from '../Title';
-
+import { InputOfCardStyled } from '../Input/InputStyled'
 const StyledLoginOrSignUp = styled.form`
     .borderDashed {
         border-bottom: 2px dashed #334D6E;
@@ -34,21 +33,32 @@ const CardStyled = styled.div`
     }
 `;
 
-const Login = ({ submitHandiling, inputValue="", inputHandling = () => {}, nameValue = "", nameHandling = () => {}, login, signup }) => {
+const Login = ({ submitHandiling, register={}, login, signup, className='', phone_number }) => {
     return (
         <StyledLoginOrSignUp onSubmit={submitHandiling}>
             <Title title13>Tizimga kirish</Title>
             { login ? <p>Raqamizga yuborilgan kodni kiriting</p> : signup ? <p>Ismingizni va telefon raqamingizni kiriting</p> : <p>Telefon raqamingizni kiriting</p> }
             <div className="borderDashed"></div>
             <CardStyled>
-                {login ? 
-                    <Input login placeholder="******" length="6" inputValue={inputValue} changeValue={inputHandling} /> 
-                : signup ? 
+                {signup ? 
                     <>
-                        <Input signup placeholder="Ism" inputValue={nameValue} changeValue={nameHandling} />
-                        <Input phone  inputValue={inputValue} changeValue={inputHandling} />
+                        <InputOfCardStyled className={className.one}>
+                            <input placeholder="Ism" {...register('full_name', { required: true})} />
+                        </InputOfCardStyled>
+                        <InputOfCardStyled className={className.two}>
+                            <span>+998</span>
+                            <InputMask mask="99 999 99 99" maskChar={null} value={phone_number} {...register('phone_number', { required: true})} />
+                        </InputOfCardStyled>
                     </>
-                : <Input phone inputValue={inputValue} changeValue={inputHandling} />
+                :   <InputOfCardStyled className={className}>
+                    {login || signup ? '' : <span>+998</span>}
+                    {login ? 
+                        <InputMask mask="99-99-99" maskChar={null} placeholder={"**-**-**"} {...register} />
+                    : signup ? 
+                        ''
+                    : <InputMask mask="99 999 99 99" maskChar={null} placeholder={"** *** ** **"} {...register} />
+                    }
+                    </InputOfCardStyled>
                 }
                 <Button>{login ? "Kirish" : "Yuborish"}</Button>
             </CardStyled>

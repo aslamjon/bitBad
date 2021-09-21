@@ -1,26 +1,26 @@
 import React, {useState} from 'react'
 import { withRouter } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 import Login from '../components/Login';
 import ApiServices from '../services/api/ApiServices';
-import { ToastContainer, toast } from 'react-toastify';
 import Loader from '../components/Loader';
+import classNames from 'classnames';
 
 
 const LoginOrSignUpPage = ({history}) => {
     const notify = (value) => toast.error(`${value}`);
-    const [phone_number, setPhoneNumber] = useState('');
     const [loading, setLoading] = useState(false);
-    const inputHandling = (e) => {
-        setPhoneNumber(e.target.value)
-        }
-    const submitHandiling = (e) => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const submitHandiling = ({phone_number}) => {
         setLoading(true);
-        e.preventDefault();
         const to_reqister = false;
         function multiReplace(str, oldObj, newObj) {
             return str.split(oldObj).join(newObj)
         }
-        ApiServices.logInOrSignUp({phone_number: multiReplace(phone_number, ' ' , ''), to_reqister}).then(res => {
+        phone_number = multiReplace(phone_number, ' ' , '')
+        ApiServices.logInOrSignUp({phone_number, to_reqister}).then(res => {
             if (res && res.data) {
                 const {registered} = res.data;
                 if (registered) history.push(`/auth/login/${btoa(phone_number)}`);
@@ -28,17 +28,19 @@ const LoginOrSignUpPage = ({history}) => {
                 setLoading(false);
             }
         }).catch(e => {
-            console.log(e.response.data.phone_number) 
             setLoading(false);
-            if (e.response.status === 400) notify("Raqam to'liq kiritilmagan")
-            else notify(`${e.response.data.phone_number}`)
+            console.log(e.response)
+            if (e.response.data.phone_number) notify(`${e.response.data.phone_number}`)
+            else notify(`${e.response.data}`)
         })
     }
     return (
         <>
             <ToastContainer />
             <Loader loading={loading}/>
-            <Login submitHandiling={submitHandiling} inputValue={phone_number} inputHandling={inputHandling} />
+            <Login submitHandiling={handleSubmit(submitHandiling)} 
+            register={register('phone_number', { required: true })} 
+            className={classNames('test',{ error: errors.phone_number})} />
         </>
     )
 }

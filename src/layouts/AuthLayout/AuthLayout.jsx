@@ -30,7 +30,7 @@ const AuthLayout = ({children, props}) => {
         <AuthStyled>
             <div className="authCard">
                 {children}
-                <LinkStyled to="/auth/signup" >Ro'yxatdan o'tmaganmisiz?</LinkStyled>
+                <LinkStyled to="/auth/login-or-signup" >Ro'yxatdan o'tmaganmisiz?</LinkStyled>
             </div>
         </AuthStyled>
     )
