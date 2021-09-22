@@ -19,6 +19,7 @@ body {
     line-height: 1.45;
     color: #006400;
     font-weight: 500;
+    overflow-x: hidden;
 }
 `;
 

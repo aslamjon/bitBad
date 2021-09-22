@@ -7,7 +7,7 @@ import { setCurrentToken } from '../../redux/user/userAction';
 store.subscribe(getToken)
 
 function select(state) {
-    return state.user.token
+    return state.token.token
 }
 
 function getToken() {

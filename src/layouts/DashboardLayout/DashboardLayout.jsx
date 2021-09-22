@@ -13,16 +13,18 @@ const DashboardStyled = styled.div`
     background: #99CF67;
 `;
 
-const DashboardLayout = ({children, token}) => {
+const DashboardLayout = ({children, token, setCurrentUser}) => {
+    const history = useHistory();
     useEffect(() => {
         ApiServices.getMe().then(res => {
-            console.log(res.data)
+            setCurrentUser(res.data)
         }).catch(e => {
             console.log(e.response)
+            if (!token) history.push('/');
+            console.log('dashboradLayout',token)
         })
     }, [])
-    const history = useHistory();
-    if (!token) history.push('/');
+    
     return (
         <>
             <DashboardStyled>

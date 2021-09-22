@@ -12,6 +12,9 @@ const ButtonStyled = styled.button`
     ${({shadow}) => shadow && css`
         box-shadow: 0px 0px 4px 5px rgba(0, 100, 0, 0.25);
     `}
+    ${({pinck}) => pinck && css`
+        background: #F19F9D;
+    `}
 `;
 const Button = (props) => {
     return <ButtonStyled {...props} />

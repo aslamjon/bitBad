@@ -3,9 +3,10 @@ import { UserTypes } from "./userType";
 const INITIAL_STATE = {
     currentUser: {
     },
-    token: '',
 }
-
+const INITIAL_STATE_OF_TOEKN = {
+    token: ''
+}
 const UserReduser = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case UserTypes.SET_CURRENT_USER:
@@ -13,14 +14,24 @@ const UserReduser = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentUser: action.payload
             }
-        case UserTypes.SET_CURRENT_TOKEN:
-            return {
-                ...state,
-                token: action.payload
-            }
         
         default:
             return state;
     }
 }
-export default UserReduser;
+const TokenReducer = (state = INITIAL_STATE_OF_TOEKN, action) => {
+    switch (action.type) {
+        case UserTypes.SET_CURRENT_TOKEN:
+            return {
+                ...state,
+                token: action.payload
+            }
+        default:
+            return state;
+    }
+}
+export {
+    UserReduser,
+    TokenReducer
+}
+

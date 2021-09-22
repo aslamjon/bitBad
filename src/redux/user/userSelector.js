@@ -6,7 +6,8 @@ export const user = createSelector(
     [selectUser],
     (value) => value.currentUser
 )
+const selectToken = state => state.token;
 export const token = createSelector(
-    [selectUser],
+    [selectToken],
     (value) => value.token
 )
