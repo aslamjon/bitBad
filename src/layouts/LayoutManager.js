@@ -18,7 +18,6 @@ const LayoutManager = ({children, location}) => {
             dashboard : DashboardLayout 
         }
     }
-    console.log(location)
     const Layout = getLayout()[getPath(get(location, 'pathname', 'dashboard'))]
     return (
         <Layout>

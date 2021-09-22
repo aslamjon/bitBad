@@ -2,15 +2,8 @@ import { UserTypes } from "./userType";
 
 const INITIAL_STATE = {
     currentUser: {
-        is_admin: false,
-        token: '',
-        user: {
-            balance: 0,
-            phone_number: "915411998",
-            full_name: "Aslamjon",
-            card_number: null
-        }
-    }
+    },
+    token: '',
 }
 
 const UserReduser = (state = INITIAL_STATE, action) => {
@@ -19,6 +12,11 @@ const UserReduser = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentUser: action.payload
+            }
+        case UserTypes.SET_CURRENT_TOKEN:
+            return {
+                ...state,
+                token: action.payload
             }
         
         default:

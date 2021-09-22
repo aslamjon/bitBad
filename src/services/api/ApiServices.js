@@ -10,8 +10,9 @@ class ApiServices {
     static signUp({phone_number, full_name}) {
         return request.post('accounts/register/', {phone_number, full_name})
     }
-    static getMe({token}) {
-        return request.get('accounts/profile/', {token})
+    static getMe(token) {
+        if (token) return request.get('accounts/profile/', {token})
+        else return request.get('accounts/profile/')
     }
 }
 export default ApiServices

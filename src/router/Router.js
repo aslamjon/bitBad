@@ -9,20 +9,30 @@ import PageNotFound from '../pages/PageNotFound'
 import SignUpPage from '../pages/SignUpPage'
 
 import 'react-toastify/dist/ReactToastify.css';
+import IsGuest from '../services/auth/IsGuest'
+import IsAuth from '../services/auth/IsAuth'
 
 const Router = () => {
     return (
         <WebRouter>
             <LayoutManager>
-                <Switch>
-                    <Route exact path="/" component={LandingPage} />
-                    <Route path="/auth/login-or-signup" component={LoginOrSignUpPage} />
-                    <Route path="/auth/login/:phone" component={LoginPage} />
-                    <Route path="/auth/signup/:phone" component={SignUpPage} />
-                    <Route path="/dashboard" component={DashboardPage} />
-                    <Route path="/404" component={PageNotFound} />
-                    <Route path="*" render={() => <Redirect to="404"/> } />
-                </Switch>
+                <IsAuth>
+                    <Switch>
+                        <Route path="/dashboard" component={DashboardPage} />
+                        <Route path="/404" component={PageNotFound} />
+                        <Route path="*" render={() => <Redirect to="404"/> } />
+                    </Switch>
+                </IsAuth>
+                <IsGuest>
+                    <Switch>
+                        <Route exact path="/" component={LandingPage} />
+                        <Route path="/auth/login-or-signup" component={LoginOrSignUpPage} />
+                        <Route path="/auth/login/:phone" component={LoginPage} />
+                        <Route path="/auth/signup/:phone" component={SignUpPage} />
+                        <Route path="/404" component={PageNotFound} />
+                        <Route path="*" render={() => <Redirect to="404"/> } />
+                    </Switch>
+                </IsGuest>
             </LayoutManager>
         </WebRouter>
     )

@@ -25,7 +25,6 @@ const LinkStyled = styled(Link)`
 `;
 
 const AuthLayout = ({children, props}) => {
-    console.log(props);
     return (
         <AuthStyled>
             <div className="authCard">

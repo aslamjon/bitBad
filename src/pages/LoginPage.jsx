@@ -8,10 +8,10 @@ import classNames from 'classnames';
 
 import ApiServices from '../services/api/ApiServices';
 import Login from '../components/Login/Login'
-import { setCurrentUser } from '../redux/user/userAction';
+import { setCurrentToken, setCurrentUser } from '../redux/user/userAction';
 import Loader from '../components/Loader';
 
-const LoginPage = ({history, setCurrentUser}) => {
+const LoginPage = ({history, setCurrentUser, setCurrentToken}) => {
     const notify = (value) => toast.error(`${value}`);
     const [loading, setLoading] = useState(false);
     const {phone:phone_number} = useParams();
@@ -22,8 +22,9 @@ const LoginPage = ({history, setCurrentUser}) => {
         setLoading(true)
         code = code.split('-').join('');
         ApiServices.login({phone_number:atob(phone_number), code}).then(res => {
+            console.log(res)
             if (res.data.token) {
-                setCurrentUser(res.data)
+                setCurrentToken(res.data.token)
                 history.push('/dashboard')
             }
             return res
@@ -51,6 +52,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispathToProps = dispatch => ({
     setCurrentUser: value => dispatch(setCurrentUser(value)),
+    setCurrentToken: value => dispatch(setCurrentToken(value)),
 })
 
 export default connect(mapStateToProps, mapDispathToProps)(LoginPage);

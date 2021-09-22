@@ -21,11 +21,11 @@ const LoginOrSignUpPage = ({history}) => {
         }
         phone_number = multiReplace(phone_number, ' ' , '')
         ApiServices.logInOrSignUp({phone_number, to_reqister}).then(res => {
+            setLoading(false);
             if (res && res.data) {
                 const {registered} = res.data;
                 if (registered) history.push(`/auth/login/${btoa(phone_number)}`);
                 else history.push(`/auth/signup/${btoa(phone_number)}`);
-                setLoading(false);
             }
         }).catch(e => {
             setLoading(false);
