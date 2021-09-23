@@ -39,7 +39,10 @@ request.interceptors.request.use((request) => {
 }, (error) => {
     console.log(error);
 })
-axios.interceptors.response.use((response) => console.log(response), (error) => {
+request.interceptors.response.use((response) => {
+    console.log(response)
+    return response;
+}, (error) => {
     const statusCode = error.response.status;
     if (statusCode === 401) {
         console.log(getToken())
