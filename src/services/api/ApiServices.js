@@ -14,5 +14,14 @@ class ApiServices {
         if (token) return request.get('accounts/profile/', {token})
         else return request.get('accounts/profile/')
     }
+    static getStatistics() {
+        return request.get("products/statistics/");
+    }
+    static getTransactions() {
+        return request.get("products/transactions/");
+    }
+    static getOrders() {
+        return request.get("products/orders/");
+    }
 }
 export default ApiServices
