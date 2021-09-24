@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../../config';
 import { store } from '../../redux/store';
-import { setCurrentToken } from '../../redux/user/userAction';
+import { setCurrentToken, setCurrentUser } from '../../redux/user/userAction';
 
 // store
 store.subscribe(getToken)
@@ -16,6 +16,7 @@ function getToken() {
 }
 function removeCurrentUser() {
     store.dispatch(setCurrentToken(''))
+    store.dispatch(setCurrentUser(''))
 }
 
 // Create default config
