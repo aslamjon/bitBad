@@ -40,7 +40,7 @@ request.interceptors.request.use((request) => {
     console.log(error);
 })
 request.interceptors.response.use((response) => {
-    console.log(response)
+    // console.log(response)
     return response;
 }, (error) => {
     const statusCode = error.response.status;
