@@ -47,13 +47,13 @@ const Login = ({ submitHandiling, register={}, login, signup, className='', phon
                         </InputOfCardStyled>
                         <InputOfCardStyled className={className.two}>
                             <span>+998</span>
-                            <InputMask mask="99 999 99 99" maskChar={null} value={phone_number} {...register('phone_number', { required: true})} />
+                            <InputMask mask="99 999 99 99" maskChar={null} value={phone_number} {...register('phone_number', { required: true})} disabled/>
                         </InputOfCardStyled>
                     </>
                 :   <InputOfCardStyled className={className}>
                     {login || signup ? '' : <span>+998</span>}
                     {login ? 
-                        <InputMask mask="99-99-99" maskChar={null} placeholder={"**-**-**"} {...register('code', { required: true})} />
+                        <InputMask mask="999-999" maskChar={null} placeholder={"**-**-**"} {...register('code', { required: true})} />
                     : signup ? 
                         ''
                     : <InputMask mask="99 999 99 99" maskChar={null} placeholder={"** *** ** **"} {...register} />
