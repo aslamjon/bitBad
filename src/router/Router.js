@@ -20,7 +20,7 @@ const Router = () => {
                     <Switch>
                         <Route path="/dashboard" component={DashboardPage} />
                         <Route path="/404" component={PageNotFound} />
-                        <Route path="*" render={() => <Redirect to="404"/> } />
+                        <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>
                 </IsAuth>
                 <IsGuest>

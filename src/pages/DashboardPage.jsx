@@ -82,7 +82,6 @@ const ArrowsStyled = styled.img`
 `;
 
 const DashboardPage = ({ user }) => {
-    
     // console.log(user)
     return (
         <>
