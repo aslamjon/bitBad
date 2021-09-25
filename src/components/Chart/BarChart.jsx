@@ -28,8 +28,8 @@ const BarChartComponent = ({data}) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="order_count" fill="#8884d8" />
-                <Bar dataKey="view_count" fill="#82ca9d" />
+                <Bar dataKey="order_count" fill="rgba(0, 100, 0, 0.7" />
+                <Bar dataKey="view_count" fill="rgba(241, 159, 157, 0.7)" />
             </BarChart>
         </ResponsiveContainer>
     )
