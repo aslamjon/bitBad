@@ -31,6 +31,11 @@ body {
             border: 1px solid #006400;
             cursor: pointer;
             border-radius: 10px;
+            transition: 0.3s;
+            &:hover {
+                background: #fff;
+                border: 1px solid #fff;
+            }
         }
     }
 }
