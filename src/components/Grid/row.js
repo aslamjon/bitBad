@@ -11,8 +11,8 @@ const StyledRow = styled.div`
     flex-wrap: ${({wrap}) => wrap ? 'wrap' : 'no-wrap'};
     ${({row}) => row && css`
         flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
+        /* margin-right: -15px;
+        margin-left: -15px; */
     `};
     ${({bg}) => bg && css`
         background: ${bg};
