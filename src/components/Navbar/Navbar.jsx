@@ -36,7 +36,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/oqimlar">
+                        <NavLink to="/streams">
                             <SvgIcon src={oqim} />
                             Oqimlar
                         </NavLink>
