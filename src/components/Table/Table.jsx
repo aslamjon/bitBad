@@ -10,6 +10,7 @@ const TableStyld = styled.table`
     border-top: 1px solid rgba(51, 77, 110, 0.5);
     border-bottom: 1px solid rgba(51, 77, 110, 0.5);
     border-collapse: collapse;
+    min-width: 635px;
     tr {
         
         th {

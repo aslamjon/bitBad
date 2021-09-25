@@ -22,9 +22,9 @@ const StyledRow = styled.div`
         position: absolute;
     }
 `;
-const Row = (props) => {
+const Row = ({className, ...props}) => {
     return (
-        <StyledRow {...props} />
+        <StyledRow className={className ? className : ''} {...props} />
     )
 }
 

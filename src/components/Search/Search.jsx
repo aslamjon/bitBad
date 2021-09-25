@@ -38,9 +38,9 @@ const SearchStyled = styled.div`
     }
 `;
 
-const Search = () => {
+const Search = ({className}) => {
     return (
-        <SearchStyled>
+        <SearchStyled className={className ? className : ''}>
             <input type="text" placeholder="Qidiruv" />
             <button type="button"><SvgIcon src={search} /></button>
         </SearchStyled>

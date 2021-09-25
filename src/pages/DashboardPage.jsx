@@ -32,11 +32,11 @@ const DashboardPage = ({ user }) => {
                 setStatistics((statistics) => ({...statistics, data: res.data, isFetched: true}))
             }
         }).catch(e => {console.log(e); setStatistics((statistics) => ({...statistics, data: {}, isFetched: false}))})
-    })
+    },[])
     const {data=[], isFetched=false} = statistics;
     return (
         <>
-            <Row>
+            <Row row>
                 <ColStyled sm={12} md={8}>
                     <ChartStyled>
                         <div className="title">Statistika</div> 
@@ -74,12 +74,12 @@ const DashboardPage = ({ user }) => {
             </Row>
             <HistoryBalance>
                 <TitleStyled bold>Balans tarixi</TitleStyled>
-                <Row justify="space-between">
+                <Row justify="space-between" className="rowCound">
                     <Row>
                         <TitleStyled>Qator soni: </TitleStyled>
                         <Select row={25} />
                     </Row>
-                    <Search />
+                    <Search className="search" />
                 </Row>
                 <Table upAndDown tableData={[
                     {date: '20-20-2000', card: '1234455', 

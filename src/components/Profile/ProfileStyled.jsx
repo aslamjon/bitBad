@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const ProfileContainer = styled.div`
-    
     display: flex;
     align-items: center;
+    position: relative;
     input {
         background: none;
         border: none;
@@ -34,10 +34,10 @@ const ProfileContainer = styled.div`
         }
         &__items {
             position: absolute;
-            right: 0px;
+            right: -7px;
             background: #fff;
             border-radius: 15px;
-            top: 75px;
+            top: 60px;
             z-index: 1;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             /* transform: translateX(400px); */
@@ -78,6 +78,16 @@ const ProfileContainer = styled.div`
             /* transform: translateX(0px); */
             padding: 15px 12px;
             height: 85px;
+        }
+    }
+    @media (max-width: 805px) {
+        .dropDown {
+            &__body {
+                &__avatar {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
         }
     }
 `;

@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 import SvgIcon from '../SvgIcon';
+import { NavbarStyled, NavbarContainerStyled, NavbarToggleButtonStyled } from "./NavbarStyle";
+import Profile from '../Profile/Profile';
 
 import logo from '../../assets/images/logo.png';
 import home from '../../assets/images/home.svg';
@@ -12,79 +13,58 @@ import statistika from '../../assets/images/statistika.svg';
 import card from '../../assets/images/card.svg';
 import faq from '../../assets/images/faq.svg';
 
-import Profile from '../Profile/Profile';
 
-const NavbarStyled = styled.div`
-    background: #FFFFFF;
-    border-radius: 15px;
-    max-height: 70px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    
-    img {
-        width: 200px;
-        height: 100%;
-    }
-    ul {
-        display: flex;
-        li {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 21px;
-            letter-spacing: 0.01em;
-            color: #334D6E;
-            margin: 0 14px;
-            cursor: pointer;
-            div {
-                margin-right: 5px;
-            }
-            &.active {
-                color: #006400;
-            }
-        }
-    }
-    
-`;
-
-const Navbar = ({ active="" }) => {
-    
+const Navbar = () => {
     return (
         <NavbarStyled>
-            <Link to="/"><img src={logo} alt="logo" /></Link>
-            <ul>
-                <li key={1} className={active} >
-                    <SvgIcon src={home} color={active ? '#006400' : ''} />
-                    Asosiy
-                </li>
-                <li key={2} className={active} >
-                    <SvgIcon src={shop} color={active ? '#006400' : ''} />
-                    Mahsulotlar
-                </li>
-                <li key={3} className={active} >
-                    <SvgIcon src={oqim} color={active ? '#006400' : ''} />
-                    Oqimlar
-                </li>
-                <li key={4} className={active} >
-                    <SvgIcon src={statistika} color={active ? '#006400' : ''} />
-                    Statistika
-                </li>
-                <li key={5} className={active} >
-                    <SvgIcon src={card} color={active ? '#006400' : ''} />
-                    To'lov
-                </li>
-                <li key={6} className={active} >
-                    <SvgIcon src={faq} color={active ? '#006400' : ''} />
-                    FAQ
-                </li>
-            </ul>
-            <Profile />
+            <NavbarToggleButtonStyled>
+                <Link to="/dashboard" className="logo"><img src={logo} alt="logo" /></Link>
+            </NavbarToggleButtonStyled>
+            <NavbarContainerStyled>
+                <Link to="/dashboard" className="logo"><img src={logo} alt="logo" /></Link>
+                <ul>
+                    <li>
+                        <NavLink to="/dashboard">
+                            <SvgIcon src={home} />
+                            Asosiy
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/products">
+                            <SvgIcon src={shop} />
+                            Mahsulotlar
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/oqimlar">
+                            <SvgIcon src={oqim} />
+                            Oqimlar
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/statistic">
+                            <SvgIcon src={statistika} />
+                            Statistika
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/payment">
+                            <SvgIcon src={card} />
+                            To'lov
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/faq">
+                            <SvgIcon src={faq} />
+                            FAQ
+                        </NavLink>
+                    </li>
+                </ul>
+                <Profile  className="showDesktop" /> 
+            </NavbarContainerStyled>
+            
         </NavbarStyled>
     )
 }
 
-export default Navbar
+export default Navbar;

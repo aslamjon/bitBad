@@ -11,10 +11,10 @@ import { ProfileContainer } from './ProfileStyled';
 import { addDetectClick, removeDetectClick } from '../../utils/detect-click'
 import { connect } from 'react-redux';
 import { setCurrentToken } from '../../redux/user/userAction';
-const Profile = ({ setToken }) => {
+const Profile = ({ setToken, className }) => {
     const history = useHistory();
     const [dropDown, setDropDonw] = useState(false);
-    addDetectClick({setDropDonw, classes: ['dropDown__body', 'dropDown__body__avatar', 'dropDown__body__dots']})
+    addDetectClick({setDropDonw, classes: ['dropDown__body', 'dropDown__body__avatar', 'dropDown__body__dots', 'dropDown__body__dots__dot']})
     useEffect(() => {
         return () => {
             if (dropDown) removeDetectClick();
@@ -25,16 +25,16 @@ const Profile = ({ setToken }) => {
         history.push('/')
     }
     return (
-        <ProfileContainer>
+        <ProfileContainer className={className ? className : ''}>
                 <SvgIcon src={search} color="#334d6e"/>
                 <input type="search" placeholder="Qidiruv" />
                 <div className="dropDown">
                     <div className="dropDown__body" onClick={() => setDropDonw(!dropDown)}>
                         <img className="dropDown__body__avatar" src={avatar} alt="avatar" />
                         <div className="dropDown__body__dots">
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            <div className="dropDown__body__dots__dot"></div>
+                            <div className="dropDown__body__dots__dot"></div>
+                            <div className="dropDown__body__dots__dot"></div>
                         </div>
                     </div>
                     

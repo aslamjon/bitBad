@@ -5,6 +5,10 @@ import Title from '../../components/Title';
 const ColStyled = styled(Col)`
     margin: 20px 0;
     padding: 0 10px;
+    /* height: 100%; */
+    @media (max-width: 767px) {
+        padding: 0;
+    }
 `;
 const ChartStyled = styled.div`
     background: #fff;
@@ -12,7 +16,8 @@ const ChartStyled = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin-left: -10px;
-    height: 417px;
+    max-height: 432px;
+    height: 100%;
     .title {
         font-weight: bold;
     
@@ -21,6 +26,9 @@ const ChartStyled = styled.div`
         color: #334D6E;
         margin: -15px 0 5px 20px;
     }
+    @media (max-width: 767px) {
+        margin-left: 0px;
+    }
 `;
 const ReportStyled = styled.div`
     background: #fff;
@@ -28,8 +36,12 @@ const ReportStyled = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin-right: -10px;
+    height: 100%;
     .mt {
         margin-top: 50px;
+    }
+    @media (max-width: 767px) {
+        margin-right: 0px;
     }
 `;
 const Dotted = styled.div`
@@ -68,6 +80,15 @@ const HistoryBalance = styled.div`
     border-radius: 15px;
     padding: 43px 40px 32px;
     margin-bottom:100px;
+    overflow-x: auto;
+    @media (max-width: 392px) {
+        .rowCound {
+            flex-wrap: wrap;
+        }
+        .search {
+            margin-top: 10px;
+        }
+    }
 `;
 const ArrowsStyled = styled.img`
     border-radius: 50%;
