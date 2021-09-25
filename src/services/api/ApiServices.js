@@ -23,5 +23,8 @@ class ApiServices {
     static getOrders() {
         return request.get("products/orders/");
     }
+    static getProducts({limit=10, offset=0}) {
+        return request.get(`products/?limit=${limit}&offset=${offset}`);
+    }
 }
 export default ApiServices

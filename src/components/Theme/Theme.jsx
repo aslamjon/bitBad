@@ -21,6 +21,19 @@ body {
     font-weight: 500;
     overflow-x: hidden;
 }
+.pagination {
+    display: flex;
+    margin-top: 15px;
+    li {
+        margin: 5px;
+        a {
+            padding: 5px 10px;
+            border: 1px solid #006400;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    }
+}
 `;
 
 const Theme = ({ children }) => {

@@ -11,6 +11,7 @@ import SignUpPage from '../pages/SignUpPage'
 import 'react-toastify/dist/ReactToastify.css';
 import IsGuest from '../services/auth/IsGuest'
 import IsAuth from '../services/auth/IsAuth'
+import ProductsPage from '../pages/ProductsPage'
 
 const Router = () => {
     return (
@@ -19,6 +20,7 @@ const Router = () => {
                 <IsAuth>
                     <Switch>
                         <Route path="/dashboard" component={DashboardPage} />
+                        <Route path="/products" component={ProductsPage} />
                         <Route path="/404" component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>
