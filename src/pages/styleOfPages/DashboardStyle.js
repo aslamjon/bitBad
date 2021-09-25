@@ -81,6 +81,9 @@ const HistoryBalance = styled.div`
     padding: 43px 40px 32px;
     margin-bottom:100px;
     overflow-x: auto;
+    ${({mt}) => mt && css`
+        margin-top: ${mt}px;
+    `}
     @media (max-width: 392px) {
         .rowCound {
             flex-wrap: wrap;

@@ -20,22 +20,33 @@ const TableStyld = styled.table`
             }
         }
     }
+    .productOfCondition {
+        background: #006400;
+        border-radius: 15px;
+        padding: 4px 10px;
+        color: #fff;
+        &.sold {
+            background: #F19F9D;
+        }
+    }
 `;
 
-const Table = ({tableData, upAndDown}) => {
+const Table = ({tableData, upAndDown, statistics}) => {
     return (
         <TableStyld>
             <tr>
                 <th>SANA</th>
-                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} HISOB RAQAM</th>
-                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} SUMMA</th>
+                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'XARIDOR' : "HISOB RAQAM"} </th>
+                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'MASULOT' : "SUMMA"}</th>
+                {statistics ? <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} VILOYAT</th> : null}
                 <th>HOLAT</th>
             </tr>
             {tableData.map((value) => <tr>
                 <td>{value.date}</td>
                 <td>{value.card}</td>
                 <td>{value.sum}</td>
-                <td>{value.condition}</td>
+                {statistics ? <td>{value.viloyat}</td> : null}
+                <td>{statistics ? <span className={`productOfCondition ${value.condition ? "sold" : ''}`}>{value.condition ? 'Sotildi' : "Sotilmadi"}</span> : value.condition}</td>
             </tr>)}
             
         </TableStyld>

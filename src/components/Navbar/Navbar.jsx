@@ -42,7 +42,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/statistic">
+                        <NavLink to="/statistics">
                             <SvgIcon src={statistika} />
                             Statistika
                         </NavLink>

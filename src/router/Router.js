@@ -13,6 +13,7 @@ import IsGuest from '../services/auth/IsGuest'
 import IsAuth from '../services/auth/IsAuth'
 import ProductsPage from '../pages/ProductsPage'
 import Streams from '../pages/StreamsPage'
+import StatisticsPage from '../pages/StatisticsPage'
 
 const Router = () => {
     return (
@@ -23,6 +24,7 @@ const Router = () => {
                         <Route path="/dashboard" component={DashboardPage} />
                         <Route path="/products" component={ProductsPage} />
                         <Route path="/streams" component={Streams} />
+                        <Route path="/statistics" component={StatisticsPage} />
                         <Route path="/404" component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>
