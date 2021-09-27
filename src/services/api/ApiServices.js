@@ -7,8 +7,8 @@ class ApiServices {
     static login({phone_number, code}) {
         return request.post('accounts/login/', {phone_number, code})
     }
-    static signUp({phone_number, full_name}) {
-        return request.post('accounts/register/', {phone_number, full_name})
+    static signUp(params) {
+        return request.post('accounts/register/', {...params})
     }
     static getMe(token) {
         if (token) return request.get('accounts/profile/', {token})

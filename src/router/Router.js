@@ -14,6 +14,7 @@ import IsAuth from '../services/auth/IsAuth'
 import ProductsPage from '../pages/ProductsPage'
 import Streams from '../pages/StreamsPage'
 import StatisticsPage from '../pages/StatisticsPage'
+import ConfirmPage from '../pages/ConfirmPage'
 
 const Router = () => {
     return (
@@ -35,6 +36,7 @@ const Router = () => {
                         <Route path="/auth/login-or-signup" component={LoginOrSignUpPage} />
                         <Route path="/auth/login/:phone" component={LoginPage} />
                         <Route path="/auth/signup/:phone" component={SignUpPage} />
+                        <Route path="/auth/confirm/:phone/:full_name" component={ConfirmPage} />
                         <Route path="/404" component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="404"/> } />
                     </Switch>
