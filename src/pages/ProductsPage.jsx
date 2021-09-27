@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { ProductsCard } from '../components/Card'
 import ApiServices from '../services/api/ApiServices'
 import { Col, Row } from '../components/Grid';
-
+import Loader from '../components/Loader';
 
 const ProductsPage = () => {
     const [cards, setCards] = useState({data:[], next:'', count:0, isFitched:false})
@@ -15,7 +15,6 @@ const ProductsPage = () => {
         setCards({data:[], next:'', count:0, isFitched:true})
         ApiServices.getProducts(limitOffset).then(res => {
             console.log(res)
-            
             setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false})
         }).catch(e => {
             console.log(e)
@@ -26,13 +25,21 @@ const ProductsPage = () => {
         console.log(e)
         const {query:{limit, offset}} = queryString.parseUrl(cards.next)
         setLimitOffset({limit, offset})
-
+        setCards({data:[], next:'', count:0, isFitched:true})
+        ApiServices.getProducts(limitOffset).then(res => {
+            console.log(res)
+            setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false})
+        }).catch(e => {
+            console.log(e)
+            setCards({data:[], next:'', count:0, isFitched:false})
+        })
     }
     return (
         <>
         <Row row>
             <Col sm={6} md={3} mt={15}>Tab</Col>
-            {cards.data.map(({id, ...value}) => <Col sm={6} md={3} mt={15}><ProductsCard key={id} {...value} /></Col>)}
+            { cards.isFitched ? <Loader loading={cards.isFitched} /> 
+            : cards.data.map(({id, ...value}) => <Col sm={6} md={3} mt={15}><ProductsCard key={id} {...value} /></Col>)}
             
         </Row>
         
@@ -41,7 +48,7 @@ const ProductsPage = () => {
             nextLabel={'next'}
             breakLabel={'...'}
             breakClassName={'break-me'}
-            pageCount={cards.count/5}
+            pageCount={cards.count/10}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}
