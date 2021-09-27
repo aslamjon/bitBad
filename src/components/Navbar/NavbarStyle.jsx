@@ -39,6 +39,9 @@ const NavbarContainerStyled = styled.div`
 
                 &.active {
                     color: #006400;
+                    div {
+                        background-color: #006400;
+                    }
                 }
             }
         }
