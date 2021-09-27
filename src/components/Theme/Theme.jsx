@@ -26,16 +26,23 @@ body {
     margin-top: 15px;
     li {
         margin: 5px;
+        border-radius: 10px;
+        transition: 0.3s;
+        border: 1px solid #fff;
         a {
             padding: 5px 10px;
-            border: 1px solid #006400;
             cursor: pointer;
             border-radius: 10px;
             transition: 0.3s;
+            display: inline-block;
             &:hover {
                 background: #fff;
-                border: 1px solid #fff;
+                /* border: 1px solid #fff; */
             }
+        }
+        &.active {
+            background: #fff;
+            border: 1px solid #fff;
         }
     }
 }
