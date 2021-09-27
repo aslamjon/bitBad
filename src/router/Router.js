@@ -16,6 +16,7 @@ import Streams from '../pages/StreamsPage'
 import StatisticsPage from '../pages/StatisticsPage'
 import ConfirmPage from '../pages/ConfirmPage'
 import PaymentPage from '../pages/PaymentPage'
+import FaqPage from '../pages/FaqPage'
 
 const Router = () => {
     return (
@@ -28,6 +29,7 @@ const Router = () => {
                         <Route path="/streams" component={Streams} />
                         <Route path="/statistics" component={StatisticsPage} />
                         <Route path="/payment" component={PaymentPage} />
+                        <Route path="/faq" component={FaqPage} />
                         <Route path="/404" component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>
