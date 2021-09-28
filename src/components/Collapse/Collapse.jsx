@@ -8,7 +8,7 @@ const CollapseStyled = styled.div`
     border-radius: 15px;
     /* padding: 35px 33px 42px 40px; */
     margin-top: 20px;
-    padding: 25px 23px 32px 30px;
+    padding: 25px 23px 25px 30px;
     .head {
         display: flex;
         justify-content: space-between;
