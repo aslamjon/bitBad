@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 
 const StyledRow = styled.div`
     position: relative;
-    width: 100%;
     display: flex;
     flex-direction: ${({ column }) => column ? 'column' : 'row'};
     align-items: ${({align}) => align || 'center'};
@@ -12,8 +11,8 @@ const StyledRow = styled.div`
     ${({row}) => row && css`
         flex-wrap: wrap;
         align-items: stretch;
-        /* margin-right: -15px;
-        margin-left: -15px; */
+        margin-right: -15px;
+        margin-left: -15px;
     `};
     ${({bg}) => bg && css`
         background: ${bg};

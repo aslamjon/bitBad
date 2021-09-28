@@ -20,7 +20,6 @@ const TilteStyled = styled.div`
         line-height: 75px;
     `}
     ${({title20}) => title20 && css`
-        text-align: center;
         font-size: 20px;
         line-height: 30px;
     `}

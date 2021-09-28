@@ -17,6 +17,7 @@ import StatisticsPage from '../pages/StatisticsPage'
 import ConfirmPage from '../pages/ConfirmPage'
 import PaymentPage from '../pages/PaymentPage'
 import FaqPage from '../pages/FaqPage'
+import ProfilePage from '../pages/ProfilePage'
 
 const Router = () => {
     return (
@@ -30,6 +31,7 @@ const Router = () => {
                         <Route path="/statistics" component={StatisticsPage} />
                         <Route path="/payment" component={PaymentPage} />
                         <Route path="/faq" component={FaqPage} />
+                        <Route path="/profile" component={ProfilePage} />
                         <Route path="/404" component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>

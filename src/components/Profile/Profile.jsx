@@ -41,7 +41,7 @@ const Profile = ({ setToken, className }) => {
                     <div className={`dropDown__items ${dropDown ? 'active' : ''}`}>
                         <ul>
                             <li>
-                                <Link to="">
+                                <Link to="/profile">
                                     <SvgIcon src={profile} color="#334d6e"/>
                                     <Title title13>Profilim</Title>
                                 </Link>
