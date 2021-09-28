@@ -66,7 +66,7 @@ const PaymentPage = () => {
             <PaymentFormStyled onSubmit={handleSubmit(paymentHandling)}>
                 <label htmlFor="wallet"><img src={wallet} alt="wallet" /></label>
                 <InputMask mask="9999 9999 9999 9999" maskChar={null} {...register('Wallet', { required: true})} id="wallet" placeholder="**** **** **** ****" />
-                <label htmlFor="sum"><img src={wallet} alt="wallet" /></label>
+                <label htmlFor="sum"><img src={money} alt="sum" /></label>
                 <InputMask mask="999,999,999,999" maskChar={null} {...register('sum', { required: true})} id="sum" placeholder="Summa" />
                 <Button>Tasdiqlash</Button>
             </PaymentFormStyled>
