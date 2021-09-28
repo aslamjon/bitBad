@@ -4,7 +4,7 @@ import Title from '../../components/Title';
 
 const ColStyled = styled(Col)`
     margin: 20px 0;
-    padding: 0 10px;
+    /* padding: 0 10px; */
     /* height: 100%; */
     @media (max-width: 767px) {
         padding: 0;
@@ -15,7 +15,7 @@ const ChartStyled = styled.div`
     padding: 45px 20px 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    margin-left: -10px;
+    /* margin-left: -10px; */
     max-height: 432px;
     height: 100%;
     .title {
@@ -35,7 +35,7 @@ const ReportStyled = styled.div`
     padding: 45px 20px 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    margin-right: -10px;
+    /* margin-right: -10px; */
     height: 100%;
     .mt {
         margin-top: 50px;
