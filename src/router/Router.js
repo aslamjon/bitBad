@@ -20,30 +20,34 @@ import FaqPage from '../pages/FaqPage'
 import ProfilePage from '../pages/ProfilePage'
 
 const Router = () => {
+    let route = ''
+    if (process.env.NODE_ENV !== 'development') {
+        route = '/bitBat'
+    }
     return (
         <WebRouter>
             <LayoutManager>
                 <IsAuth>
                     <Switch>
-                        <Route path="/dashboard" component={DashboardPage} />
-                        <Route path="/products" component={ProductsPage} />
-                        <Route path="/streams" component={Streams} />
-                        <Route path="/statistics" component={StatisticsPage} />
-                        <Route path="/payment" component={PaymentPage} />
-                        <Route path="/faq" component={FaqPage} />
-                        <Route path="/profile" component={ProfilePage} />
-                        <Route path="/404" component={PageNotFound} />
+                        <Route path={`${route}/dashboard`} component={DashboardPage} />
+                        <Route path={`${route}/products`} component={ProductsPage} />
+                        <Route path={`${route}/streams`} component={Streams} />
+                        <Route path={`${route}/statistics`} component={StatisticsPage} />
+                        <Route path={`${route}/payment`} component={PaymentPage} />
+                        <Route path={`${route}/faq`} component={FaqPage} />
+                        <Route path={`${route}/profile`} component={ProfilePage} />
+                        <Route path={`${route}/404`} component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="/dashboard"/> } />
                     </Switch>
                 </IsAuth>
                 <IsGuest>
                     <Switch>
-                        <Route exact path="/" component={LandingPage} />
-                        <Route path="/auth/login-or-signup" component={LoginOrSignUpPage} />
-                        <Route path="/auth/login/:phone" component={LoginPage} />
-                        <Route path="/auth/signup/:phone" component={SignUpPage} />
-                        <Route path="/auth/confirm/:phone/:full_name" component={ConfirmPage} />
-                        <Route path="/404" component={PageNotFound} />
+                        <Route exact path={`${route}/`} component={LandingPage} />
+                        <Route path={`${route}/auth/login-or-signup`} component={LoginOrSignUpPage} />
+                        <Route path={`${route}/auth/login/:phone`} component={LoginPage} />
+                        <Route path={`${route}/auth/signup/:phone`} component={SignUpPage} />
+                        <Route path={`${route}/auth/confirm/:phone/:full_name`} component={ConfirmPage} />
+                        <Route path={`${route}/404`} component={PageNotFound} />
                         <Route path="*" render={() => <Redirect to="404"/> } />
                     </Switch>
                 </IsGuest>
