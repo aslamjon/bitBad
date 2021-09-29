@@ -45,8 +45,8 @@ request.interceptors.response.use((response) => {
     return response;
 }, (error) => {
     const statusCode = error.response.status;
+    console.log(statusCode, 'in services/api/index')
     if (statusCode === 401) {
-        console.log(getToken())
         removeCurrentUser()
     }
 })

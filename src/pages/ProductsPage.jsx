@@ -14,7 +14,6 @@ const ProductsPage = () => {
     useEffect(() => {
         setCards({data:[], next:'', count:0, isFitched:true})
         ApiServices.getProducts(limitOffset).then(res => {
-            console.log(res)
             setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false})
         }).catch(e => {
             console.log(e)
@@ -27,7 +26,6 @@ const ProductsPage = () => {
         setLimitOffset({limit, offset})
         setCards({data:[], next:'', count:0, isFitched:true})
         ApiServices.getProducts(limitOffset).then(res => {
-            console.log(res)
             setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false})
         }).catch(e => {
             console.log(e)
@@ -38,8 +36,8 @@ const ProductsPage = () => {
         <>
         <Row row>
             <Col sm={6} md={3} mt={15}>Tab</Col>
-            { cards.isFitched ? <Loader loading={cards.isFitched} /> 
-            : cards.data.map(({id, ...value}) => <Col sm={6} md={3} mt={15}><ProductsCard key={id} {...value} /></Col>)}
+            { cards.isFitched ? <Loader loading={cards.isFitched.toString()} /> 
+            : cards.data.map(({id, ...value}) => <Col key={id} sm={6} md={3} mt={15}><ProductsCard {...value} /></Col>)}
             
         </Row>
         
