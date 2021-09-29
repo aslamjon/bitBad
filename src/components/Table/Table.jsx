@@ -34,21 +34,24 @@ const TableStyld = styled.table`
 const Table = ({tableData, upAndDown, statistics}) => {
     return (
         <TableStyld>
-            <tr>
-                <th>SANA</th>
-                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'XARIDOR' : "HISOB RAQAM"} </th>
-                <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'MASULOT' : "SUMMA"}</th>
-                {statistics ? <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} VILOYAT</th> : null}
-                <th>HOLAT</th>
-            </tr>
-            {tableData.map((value) => <tr>
-                <td>{value.date}</td>
-                <td>{value.card}</td>
-                <td>{value.sum}</td>
-                {statistics ? <td>{value.viloyat}</td> : null}
-                <td>{statistics ? <span className={`productOfCondition ${value.condition ? "sold" : ''}`}>{value.condition ? 'Sotildi' : "Sotilmadi"}</span> : value.condition}</td>
-            </tr>)}
-            
+            <thead>
+                <tr>
+                    <th>SANA</th>
+                    <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'XARIDOR' : "HISOB RAQAM"} </th>
+                    <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} {statistics ? 'MASULOT' : "SUMMA"}</th>
+                    {statistics ? <th>{upAndDown && <SvgIcon src={uploadAndDownload} color="#006400" />} VILOYAT</th> : null}
+                    <th>HOLAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {tableData.map((value, index) => <tr key={index+1}>
+                    <td>{value.date}</td>
+                    <td>{value.card}</td>
+                    <td>{value.sum}</td>
+                    {statistics ? <td>{value.viloyat}</td> : null}
+                    <td>{statistics ? <span className={`productOfCondition ${value.condition ? "sold" : ''}`}>{value.condition ? 'Sotildi' : "Sotilmadi"}</span> : value.condition}</td>
+                </tr>)}
+            </tbody>
         </TableStyld>
     )
 }
