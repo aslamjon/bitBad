@@ -15,16 +15,11 @@ const SelectStyled = styled.div`
     }
 `;
 
-const Select = ({row}) => {
+const Select = ({row, options=[5, 10, 15, 20, 25, 30]}) => {
     return (
         <SelectStyled>
-            <select>
-                <option value="5" selected={row ===5}>5</option>
-                <option value="10" selected={row ===10}>10</option>
-                <option value="15" selected={row ===15}>15</option>
-                <option value="20" selected={row ===20}>20</option>
-                <option value="25" selected={row ===25}>25</option>
-                <option value="30" selected={row ===30}>30</option>
+            <select defaultValue={row}>
+                {options.map((value, index) => <option key={index+1} value={value} >{value}</option>)}
             </select>
         </SelectStyled>
     )
