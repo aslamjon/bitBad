@@ -14,6 +14,7 @@ const EmptyStyled = styled.div`
     letter-spacing: 0.01em;
     color: #334D6E;
     padding: 20px 0;
+    width: 100%;
 `;
 
 const Empty = () => {

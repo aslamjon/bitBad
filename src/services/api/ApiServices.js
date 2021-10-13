@@ -29,5 +29,8 @@ class ApiServices {
     static getProductsByCategoryId(id) {
         return request.get(`products/?categoryId=${id}`);
     }
+    static getFlows() {
+        return request.get(`products/flows`);
+    }
 }
 export default ApiServices
