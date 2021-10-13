@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
@@ -13,6 +13,7 @@ import Select from '../components/Select';
 import money from '../assets/images/money.svg';
 import wallet from '../assets/images/wallet.svg';
 import Button from '../components/Button';
+import ApiServices from '../services/api/ApiServices';
 
 const PaymentStyled = styled.div`
     background: #FFFFFF;
@@ -58,6 +59,11 @@ const PaymentFormStyled = styled.form`
 
 const PaymentPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [transactions, setTransactions] = useState({data:[], isFetched: false})
+    useEffect(() => {
+        setTransactions({data:[], isFetched: true})
+        ApiServices.getTransactions().then(res => setTransactions({data: res.data.results, isFetched: false})).catch(e => setTransactions({data:[], isFetched: false}))
+    },[])
     const paymentHandling = () => {
 
     }

@@ -36,7 +36,7 @@ const ProductsPage = () => {
     }
     const handleTabClick = (id) => {
         setCards({data:[], next:'', count:0, isFitched:true})
-        if (id === 0) ApiServices.getProducts().then(res => {
+        if (id === 0) ApiServices.getProducts({}).then(res => {
             setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false})
         }).catch(e => setCards({data:[], next:'', count:0, isFitched:false})) 
         else ApiServices.getProductsByCategoryId(id).then(res => setCards({data: res.data.results, next: res.data.next, count: res.data.count, isFitched:false}))

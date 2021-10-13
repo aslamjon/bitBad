@@ -32,5 +32,8 @@ class ApiServices {
     static getFlows() {
         return request.get(`products/flows`);
     }
+    static getFaqs() {
+        return request.get(`accounts/faqs`);
+    }
 }
 export default ApiServices

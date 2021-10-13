@@ -10,14 +10,15 @@ import Login from '../components/Login'
 const SignUpPage = () => {
     const history = useHistory()
     const notify = (value) => toast.error(`${value}`);
-    const { phone: phone_number } = useParams();
+    const { phone } = useParams();
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const phone_number = atob(phone)
 
     const submitHandiling = (data) => {
         setLoading(true)
         const {full_name} = data;
-        ApiServices.loginOrSignUp({phone_number: atob(phone_number), to_register: 1}).then(res => {
+        ApiServices.loginOrSignUp({phone_number, to_register: 1}).then(res => {
             if (res && res.data) {
                 history.push(`/auth/confirm/${btoa(phone_number)}/${btoa(full_name)}`);
             }
@@ -27,7 +28,6 @@ const SignUpPage = () => {
         })
         setLoading(false)
     }
-    console.log(errors)
     return (
         <>
             <ToastContainer />
@@ -37,7 +37,7 @@ const SignUpPage = () => {
                     one: classNames('full_name',{ error: errors.full_name}),
                     two: classNames('test',{ error: errors.phone_number}),
                 }}
-                phone_number={atob(phone_number)}
+                phone_number={phone_number}
                 />
         </>
     )
