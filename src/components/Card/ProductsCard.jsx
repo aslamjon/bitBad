@@ -4,14 +4,19 @@ import Button from '../Button';
 import Title from '../Title';
 
 const ProductsCardStyled = styled.div`
-    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 const ImgStyled = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-image: url(${({src}) => src});
-    height: 176px;
+    min-height: 176px;
+    min-height: 240px;
+    height: 100%;
     border-radius: 15px 15px 0px 0px;
 `;
 const FooterOfCardStyled = styled.div`

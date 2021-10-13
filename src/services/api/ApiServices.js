@@ -26,5 +26,8 @@ class ApiServices {
     static getProducts({limit=10, offset=0}) {
         return request.get(`products/?limit=${limit}&offset=${offset}`);
     }
+    static getProductsByCategoryId(id) {
+        return request.get(`products/?categoryId=${id}`);
+    }
 }
 export default ApiServices

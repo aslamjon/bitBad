@@ -9,8 +9,12 @@ import { setCurrentUser } from '../../redux/user/userAction'
 import { token, user } from '../../redux/user/userSelector'
 import ApiServices from '../../services/api/ApiServices'
 const DashboardStyled = styled.div`
-    padding: 21px 20px;
-    background: #99CF67;
+    min-height: 100vh;
+    .dashboard__body {
+        padding: 21px 20px;
+        background: #99CF67;
+        min-height: 70vh;
+    }
 `;
 
 const DashboardLayout = ({children, token, setCurrentUser}) => {
@@ -26,13 +30,13 @@ const DashboardLayout = ({children, token, setCurrentUser}) => {
     }, [])
     
     return (
-        <>
-            <DashboardStyled>
+        <DashboardStyled>
+            <div className="dashboard__body">
                 <Navbar />
                 {children}
-            </DashboardStyled>
+            </div>
             <Footer />
-        </>
+        </DashboardStyled>
     )
 }
 const mapStateToProps = createStructuredSelector({
