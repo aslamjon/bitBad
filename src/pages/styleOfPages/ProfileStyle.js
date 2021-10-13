@@ -46,7 +46,7 @@ const ProfileStyled = styled.div`
         letter-spacing: 0.01em;
         input {
             margin-bottom: 0;
-            margin-top: 8px;
+            margin-top: 0px;
         }
     }
     button {
