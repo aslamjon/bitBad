@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/bitBad/static/js/main.93ece09e.chunk.js",
-    "main.js.map": "/bitBad/static/js/main.93ece09e.chunk.js.map",
+    "main.js": "/bitBad/static/js/main.42f22d6b.chunk.js",
+    "main.js.map": "/bitBad/static/js/main.42f22d6b.chunk.js.map",
     "runtime-main.js": "/bitBad/static/js/runtime-main.e2c6ed2a.js",
     "runtime-main.js.map": "/bitBad/static/js/runtime-main.e2c6ed2a.js.map",
     "static/css/2.dfa6656c.chunk.css": "/bitBad/static/css/2.dfa6656c.chunk.css",
-    "static/js/2.d61e28d4.chunk.js": "/bitBad/static/js/2.d61e28d4.chunk.js",
-    "static/js/2.d61e28d4.chunk.js.map": "/bitBad/static/js/2.d61e28d4.chunk.js.map",
+    "static/js/2.8cf57fc5.chunk.js": "/bitBad/static/js/2.8cf57fc5.chunk.js",
+    "static/js/2.8cf57fc5.chunk.js.map": "/bitBad/static/js/2.8cf57fc5.chunk.js.map",
     "index.html": "/bitBad/index.html",
     "static/css/2.dfa6656c.chunk.css.map": "/bitBad/static/css/2.dfa6656c.chunk.css.map",
-    "static/js/2.d61e28d4.chunk.js.LICENSE.txt": "/bitBad/static/js/2.d61e28d4.chunk.js.LICENSE.txt",
+    "static/js/2.8cf57fc5.chunk.js.LICENSE.txt": "/bitBad/static/js/2.8cf57fc5.chunk.js.LICENSE.txt",
     "static/media/Oqim.fbe80b26.svg": "/bitBad/static/media/Oqim.fbe80b26.svg",
     "static/media/avatar.90f0bea6.jpg": "/bitBad/static/media/avatar.90f0bea6.jpg",
     "static/media/banner.17781f7b.png": "/bitBad/static/media/banner.17781f7b.png",
@@ -39,7 +39,7 @@
   "entrypoints": [
     "static/js/runtime-main.e2c6ed2a.js",
     "static/css/2.dfa6656c.chunk.css",
-    "static/js/2.d61e28d4.chunk.js",
-    "static/js/main.93ece09e.chunk.js"
+    "static/js/2.8cf57fc5.chunk.js",
+    "static/js/main.42f22d6b.chunk.js"
   ]
 }
