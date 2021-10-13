@@ -21,7 +21,7 @@ const Streams = () => {
                 {flows.data.length ? flows.data.map((value) => 
                     <Col sm={12} md={4}>
                         <StreamsCard {...temp} />
-                    </Col>) :<Empty />}
+                    </Col>) : <Empty title="Oqimlar mavjud emas" />}
             </Row>
         </>
     )

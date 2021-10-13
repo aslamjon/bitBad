@@ -17,11 +17,11 @@ const EmptyStyled = styled.div`
     width: 100%;
 `;
 
-const Empty = () => {
+const Empty = ({title='No data'}) => {
     return (
         <EmptyStyled>
             <img src={empty} alt="empty" />
-            No data
+            {title}
         </EmptyStyled>
     )
 }
