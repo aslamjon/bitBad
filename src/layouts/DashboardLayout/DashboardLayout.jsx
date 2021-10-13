@@ -15,12 +15,12 @@ const DashboardStyled = styled.div`
 
 const DashboardLayout = ({children, token, setCurrentUser}) => {
     const history = useHistory();
+    if (!token) history.push('/');
     useEffect(() => {
         ApiServices.getMe().then(res => {
             setCurrentUser(res.data)
         }).catch(e => {
-            console.log(e.response)
-            if (!token) history.push('/');
+            console.log(e)
             console.log('dashboradLayout',token)
         })
     }, [])

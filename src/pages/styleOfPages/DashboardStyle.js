@@ -40,6 +40,9 @@ const ReportStyled = styled.div`
     .mt {
         margin-top: 50px;
     }
+    .report__row__row {
+        width: 100%;
+    }
     @media (max-width: 767px) {
         margin-right: 0px;
     }
@@ -81,6 +84,7 @@ const HistoryBalance = styled.div`
     padding: 43px 40px 32px;
     margin-bottom:100px;
     overflow-x: auto;
+    
     ${({mt}) => mt && css`
         margin-top: ${mt}px;
     `}

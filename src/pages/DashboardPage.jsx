@@ -52,14 +52,14 @@ const DashboardPage = ({ user }) => {
                         <BorderDashed />
                         <Row>
                             <Dotted className="dotted"/>
-                            <Row justify='space-between'>
+                            <Row justify='space-between' className="report__row__row">
                                 <TitleStyled >Butyurma</TitleStyled>
                                 <DonaStyled>{0} dona</DonaStyled>
                             </Row>
                         </Row>
                         <Row className="mt">
                             <Dotted className="dotted"/>
-                            <Row justify='space-between'>
+                            <Row justify='space-between' className="report__row__row">
                                 <TitleStyled >So'rov</TitleStyled>
                                 <DonaStyled>{0} dona</DonaStyled>
                             </Row>
